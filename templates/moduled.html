@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<h3 style="text-align: center;">{% block title %}{{post_cat}} Recipes{% endblock %}</h3>
+
+<div class="row justify-content-center">
+    {% for post in cats %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <a href="{{ url_for('post', post_id=post['id']) }}"> <img src="{{ post['rimage'] }}" alt="{{ post['rname'] }}" class="cardContent"></a>
+            <div class="container">
+                <p>{{ post['rname'] }} || {{post['rcategory']}}</p>
+            </div>
+            <p>{{ post['rdescription'] }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .row.justify-content-center {
+        margin-top: 20px;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 100%;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+        /* Add cursor pointer to indicate it's clickable */
+    }
+    
+    .cardContent {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+</style>
+
+{% endblock %}

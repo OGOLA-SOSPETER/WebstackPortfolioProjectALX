@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block content %}
+<h2 style="text-align: center;">{% block title %}Welcome to My Recipe Website{% endblock %}</h2>
+
+{% set categories = ['Breakfast', 'Lunch', 'Dinner', 'Salad', 'Fresh Fruits'] %} {% for category in categories %}
+<h4 style="text-align: center;">{{ category|capitalize }} Recipes</h4>
+<hr>
+
+<div class="row justify-content-center">
+    {% set count = 0 %} {% for post in posts %} {% if post['rcategory'] == category %} {% if count
+    < 3 %} <div class="col-md-4 mb-4">
+        <div class="card">
+            <a href="{{ url_for('post', post_id=post['id']) }}">
+                <img src="{{ post['rimage'] }}" alt="{{ post['rname'] }}" class="cardContent">
+            </a>
+            <div class="container">
+                <p>{{ post['rname'] }} || {{ post['rcategory'] }}</p>
+            </div>
+            <p>{{ post['rdescription'] }}</p>
+        </div>
+</div>
+{% set count = count + 1 %} {% endif %} {% endif %} {% endfor %}
+</div>
+
+<hr> {% endfor %}
+
+<style>
+    .row.justify-content-center {
+        margin-top: 20px;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 100%;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+        /* Add cursor pointer to indicate it's clickable */
+    }
+    
+    .cardContent {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}

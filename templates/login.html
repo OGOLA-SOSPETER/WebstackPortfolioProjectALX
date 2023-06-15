@@ -1,0 +1,66 @@
+{% extends 'header.html' %} {% block content %}
+
+<section class="vh-100 d-flex align-items-center justify-content-center" style="background-color: #080808;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <form method="POST" action="/" onsubmit="return validateLogin()">
+
+                            <div class="form-group">
+                                <i class="fas fa-cubes fa-2x me-3" style="color: #c5c7c5;"></i>
+                                <span class="h1 fw-bold mb-0" style="font-size: medium;">Skyliners Recipes Login</span>
+                            </div>
+
+                            <h5 class="form-group" style="letter-spacing: 1px;">Sign into your account</h5>
+
+                            <div class="form-group">
+                                <input type="email" name="email" id="form2Example17" class="form-control" required value="{{ request.form['email'] }}" />
+                                <label class="form-label" for="form2Example17">Email address</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password" id="form2Example27" required class="form-control" value="{{ request.form['password'] }}" />
+                                <label class="form-label" for="form2Example27">Password</label>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Login</button>
+                            </div>
+
+                            <a class="small text-muted" href="#!">Forgot password?</a>
+                            <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="{{ url_for('register')}}" style="color: #393f81;">Register here</a></p>
+                            <a href="#!" class="small text-muted">Terms of use.</a>
+                            <a href="#!" class="small text-muted">Privacy policy</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validateLogin() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Perform validation checks
+            if (email === '') {
+                alert('Please enter your email.');
+                return false;
+            }
+
+            if (password === '') {
+                alert('Please enter your password.');
+                return false;
+            }
+
+            // All checks passed, allow form submission
+            return true;
+        }
+    </script>
+
+</section>
+
+{% endblock %}

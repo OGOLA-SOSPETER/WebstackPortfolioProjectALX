@@ -1,0 +1,123 @@
+<div class="footer">
+    <div class="row text-center">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="footer_menu">
+                <ul>
+                    <li><a href="{{url_for ('index')}}">Home</a></li>
+                    <li><a href="{{url_for ('about')}}">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="{{url_for ('contact')}}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer_copyright">
+                <p>© 2023 OgolaDeveops All Rights Reserved.</p>
+            </div>
+            <div class="social-share nav">
+                <a class="dribbble" href="#">
+                    <i class="fab fa-mail-bulk"></i>
+                </a>
+                <a class="dribbble" href="#">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a class="behance" href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="linkedin" href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a class="behance" href="#">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <!--- END COL -->
+    </div>
+    <!--- END ROW -->
+    <!--- END CONTAINER -->
+</div>
+
+<style>
+    /* body {
+        margin-top: 20px;
+    }
+     */
+    
+    .footer {
+        background: #232a34;
+        padding-bottom: 50px;
+        padding-top: 80px;
+    }
+    
+    .footer_menu {
+        margin-bottom: 20px;
+    }
+    
+    .footer_menu ul {
+        list-style: none;
+        text-align: center;
+    }
+    
+    .footer_menu ul li {
+        display: inline-block;
+    }
+    
+    .footer_menu ul li a {
+        color: #fff;
+        padding: 0 10px;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+    }
+    
+    .footer_menu ul li a:hover {
+        color: #554c86;
+    }
+    /*START FOOTER SOCIAL DESIGN*/
+    
+    .footer_profile {
+        margin-bottom: 40px;
+    }
+    
+    .footer_profile ul {
+        list-style: outside none none;
+        margin: 0;
+        padding: 0
+    }
+    
+    .footer_profile ul li {
+        display: inline-block;
+    }
+    /* @media only screen and (max-width:480px) {
+        .footer_profile ul li {
+            margin: 2px;
+        }
+    } */
+    
+    .footer_profile ul li a img {
+        width: 60px;
+    }
+    
+    .footer_profile ul li a {
+        background: #554c86;
+        width: 40px;
+        height: 40px;
+        display: block;
+        text-align: center;
+        margin-right: 5px;
+        border-radius: 50%;
+        line-height: 40px;
+        box-sizing: border-box;
+        text-decoration: none;
+        -webkit-transition: .3s;
+        transition: .3s;
+        color: #fff;
+    }
+    
+    .footer_copyright {
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #fff;
+    }
+</style>

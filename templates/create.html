@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block content %}
+<h1 style="text-align: center;">{% block title %} Create a New Recipe{% endblock %}</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="form-outline">
+                <label class="form-label" for="rname" required style="padding-left: 150px;">Recipe Name</label>
+
+                <input type="text" name="rname" id="form3Example2" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="form-outline">
+                <label class="form-label" for="rcategory" required style="padding-left: 150px;">Recipe Category</label>
+
+                <input type="text" name="rcategory" id="form3Example1" class="form-control" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="rimage">Recipe Image</label><br>
+        <!-- <input type="file" name="mimage" class="form-control"> -->
+        <input type="text" name="rimage" placeholder="Enter the image link" class="form-control" required value="{{ request.form['mimage'] }}"></input>
+        <input type="text" name="img1" placeholder="Enter the other image link" class="form-control" value="{{ request.form['mimage'] }}"></input>
+        <input type="text" name="img2" placeholder="Enter the otherimage link" class="form-control" value="{{ request.form['mimage'] }}"></input>
+        <input type="text" name="img3" placeholder="Enter the other image link" class="form-control" value="{{ request.form['mimage'] }}"></input>
+
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="description">Short Description</label><br>
+        <input type="text" name="description" placeholder="Give a short description of the recipe" required class="form-control">{{ request.form['description'] }}</textarea>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="content">Recipe Ingredients</label><br>
+        <textarea name="ingredient" placeholder="Enter the required ingredients" required class="form-control">{{ request.form['ingredient'] }}</textarea>
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="content">Recipe Procedure</label><br>
+        <textarea name="procedure" placeholder="Procedure for preparation" required class="form-control">{{ request.form['procedure'] }}</textarea>
+    </div>
+    <br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit For Review</button>
+    </div>
+</form>
+{% endblock %}

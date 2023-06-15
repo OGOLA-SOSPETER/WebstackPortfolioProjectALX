@@ -1,0 +1,418 @@
+<!---
+
+{% extends 'base.html' %} {% block content %}
+<h1>{% block title %}Welcome to My Recipe Website{% endblock %}</h1>
+
+<div class="row">
+    {% for post in posts %}
+    <div class="col-md-4">
+        <div class="card" style="width: 300px; height: 400px;">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center" style="background-color: #0f7932;">
+                <a href="{{ url_for('post', post_id=post['id']) }}">
+                    <img src="{{ post['mimage'] }}" alt="{{ post['title'] }}" class="img-fluid" style="width: 100%; height: 200px; object-fit: cover;">
+                    <h2 class="card-title">{{ post['title'] }}</h2>
+                </a>
+                <p>{{ post['created'] }}</p>
+                <br>
+                <a href="{{ url_for('edit', id=post['id']) }}" class="badge badge-warning btn btn-sm mt-2">Edit</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+-------------------------------------------------------
+=============================================
+index file
+ {% extends 'base.html' %} {% block content %}
+<h1>{% block title %}Welcome to My Recipe Website{% endblock %}</h1>
+
+<div class="row">
+    {% for post in posts %}
+    <div class="col-md-4">
+        <div class="card" style="width: 300px; height: 400px;">
+            <div class="card-body">
+                <a href="{{ url_for('post', post_id=post['id']) }}">
+                    <div class="image-container">
+                        <img src="{{ post['mimage'] }}" alt="{{ post['title'] }}" class="img-fluid rounded-circle" style="width: 200px; height: 200px;">
+                    </div>
+                    <div class="card-details">
+                        <h2 class="card-title">{{ post['title'] }}</h2>
+                        <p>{{ post['content'] }}</p>
+                    </div>
+                </a>
+                <br>
+                <a href="{{ url_for('edit', id=post['id']) }}" class="badge badge-warning btn btn-sm mt-2">Edit</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .image-container {
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+    
+    .card-details,
+    .card-body {
+        background-color: #a7aca9;
+        padding: 10px;
+    }
+</style>
+
+{% endblock %}
+
+=====================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-rf+o5eQFeDO8vbe7cIEjhz5GsPcZ6et3K2BPJh3YpuyVWOTjgjKdVMKpAIY3aBYbeMknjj0Pfu9UxVgVtnf1Kg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.9.0/mdb.min.css" integrity="sha512-0L9Ioaxg9tu+nLCF7btEKd6EoqLtlxqTd6+z9G16U6ipBduN3YHD2MYKRW2xJ01TpMZ6l7Jfy2+M9ZaH9gKxTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Login Page</title>
+</head>
+
+<body>
+    <section class="vh-100" style="background-color: #9A616D;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
+
+                                    <form>
+
+                                        <div class="d-flex align-items-center mb-3 pb-1">
+                                            <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                                            <span class="h1 fw-bold mb-0">Logo</span>
+                                        </div>
+
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form2Example17">Email address</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form2Example27">Password</label>
+                                        </div>
+
+                                        <div class="pt-1 mb-4">
+                                            <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                                        </div>
+
+                                        <a class="small text-muted" href="#!">Forgot password?</a>
+                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!" style="color: #393f81;">Register here</a></p>
+                                        <a href="#!" class="small text-muted">Terms of use.</a>
+                                        <a href="#!" class="small text-muted">Privacy policy</a>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.9.0/mdb.min.js" integrity="sha512-jKPTj3OZDk/3bfjEzcM5cuzfrkaNn7SgEPJ1D/r50yCTDDntGRH/d+9caKmOthzpx0BlfFYd7COVJlx8KKZSkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
+
+
+=======================================================================
+Register....................
+
+<!-- {% extends 'header.html' %} {% block content %}
+<!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+          background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+          height: 300px;
+          "></div>
+    <!-- Background image -->
+
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(30px);
+          ">
+        <div class="card-body py-5 px-md-5">
+
+            <div class="row d-flex justify-content-top">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-5">Sign up now</h2>
+                    <form method='POST' enctype="multipart/form-data">
+                        <!-- 2 column grid layout with text inputs for the first and last names -->
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                    <input type="text" id="form3Example1" class="form-control" />
+                                    <label class="form-label" for="form3Example1">First name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                    <input type="text" id="form3Example2" class="form-control" />
+                                    <label class="form-label" for="form3Example2">Last name</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" name="email" id="form3Example3" class="form-control" required value="{{ request.form['email'] }}" />
+                            <label class="form-label" for="form3Example3">Email address</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" name="password" id="form3Example4" class="form-control" value="{{ request.form['password'] }}" required />
+                            <label class="form-label" for="form3Example4">Password</label>
+                        </div>
+
+                        <!-- Checkbox -->
+                        <div class="form-check d-flex justify-content-center mb-4">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                            <br>
+                            <label class="form-check-label" for="form2Example33">
+                  Subscribe to our newsletter
+                </label>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                Sign up
+              </button>
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>or sign up with:</p>
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google"></i>
+                </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->
+
+
+{% endblock %} -->
+
+
+==========================================================
+Register
+
+
+# @app.route('/register', methods=('GET', 'POST'))
+# def register():
+#     if request.method == 'POST':
+#         useremail = request.form['email']
+#         userpassword = request.form['password']
+
+#         conn = get_db_connection()
+#         result = conn.execute('INSERT INTO loggedUsers (useremail,userpassword) VALUES (?, ?)',(useremail,userpassword))
+#         conn.commit()
+#         conn.close()
+#         if result:
+#             # User credentials are correct, redirect to the main page
+#             flash('Registration successful!')
+#         return redirect(url_for('login'))   
+
+#     return render_template('register.html')  
+
+==========================================================
+
+
+
+
+<!-- {% extends 'base.html' %} {% block content %}
+<h1>{% block title %}Welcome to My Recipe Website{% endblock %}</h1>
+
+<div class="row justify-content-center">
+    {% for post in posts %}
+    <div class="col-md-4 mb-4">
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+            <div class="card" onclick="{{ url_for('edit', id=post['id']) }}">
+                <img src="{{ post['mimage'] }}" alt="{{ post['title'] }}" class="cardContent">
+                <div class="container">
+                    <p>{{ post['title'] }}</p>
+                </div>
+                <p>{{ post['content'] }}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .row.justify-content-center {
+        margin-top: 20px;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 100%;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .cardContent {
+        object-fit: cover;
+        width: 100%;
+        height: 400px;
+        border-radius: 5px;
+    }
+</style>
+
+{% endblock %} -->
+
+============================================================
+
+
+
+
+
+{% extends 'header.html' %} {% block content %}
+
+<section class="vh-100" style="background-color: #cdcfce;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+
+                                <form method="POST" enctype="multipart/form-data">
+
+                                    <div class="form-group">
+                                        <i class="fas fa-cubes fa-2x me-3" style="color: #c5c7c5;"></i>
+                                        <span class="h1 fw-bold mb-0">Skyliners Recipes Login</span>
+                                    </div>
+
+                                    <h5 class="form-group" style="letter-spacing: 1px;">Sign into your account</h5>
+
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="form2Example17" class="form-control " required value="{{ request.form['email'] }}" />
+                                        <label class="form-label" for="form2Example17">Email address</label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="form2Example27" required class="form-control" value="{{ request.form['password'] }}" />
+                                        <label class="form-label" for="form2Example27">Password</label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" type="submit">Login</button>
+                                    </div>
+
+                                    <a class="small text-muted" href="#!">Forgot password?</a>
+                                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="{{ url_for('register')}}" style="color: #393f81;">Register here</a></p>
+                                    <a href="#!" class="small text-muted">Terms of use.</a>
+                                    <a href="#!" class="small text-muted">Privacy policy</a>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+===================================================================
+
+{% extends 'base.html' %} {% block content %}
+<h1 style="text-align: center;">{% block title %}Welcome to My Recipe Website{% endblock %}</h1>
+
+<div class="row justify-content-center">
+    {% for post in posts %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <a href="{{ url_for('post', post_id=post['id']) }}"> <img src="{{ post['rimage'] }}" alt="{{ post['rname'] }}" class="cardContent"></a>
+            <div class="container">
+                <p>{{ post['rname'] }} || {{post['rcategory']}}</p>
+            </div>
+            <p>{{ post['rdescription'] }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .row.justify-content-center {
+        margin-top: 20px;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 100%;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+        /* Add cursor pointer to indicate it's clickable */
+    }
+    
+    .cardContent {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+</style>
+
+{% endblock %}
+--->

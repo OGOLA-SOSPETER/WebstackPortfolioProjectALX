@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<h3 style="text-align: center;">{% block title %}{{"Awaiting List"}} Recipes{% endblock %}</h3>
+
+<div class="row justify-content-center">
+    {% for wait in waits %}
+    <div class="col-md-4 mb-4">
+        <div class="waitcard">
+            <a href="{{ url_for('waitpost', wait_id=wait['id']) }}"> <img src="{{ wait['rimage'] }}" alt="{{ wait['rname'] }}" class="waitcardContent"></a>
+            <div class="container">
+                <p>{{ wait['rname'] }} || {{wait['rcategory']}}</p>
+            </div>
+            <p>{{ wait['rdescription'] }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .row.justify-content-center {
+        margin-top: 20px;
+    }
+    
+    .waitcard {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: 100%;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+        /* Add cursor pointer to indicate it's clickable */
+    }
+    
+    .waitcardContent {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+</style>
+
+{% endblock %}

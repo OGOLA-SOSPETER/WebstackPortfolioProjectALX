@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block content %}
+<h4>{% block title %} Edit {{ post['rname'] }} || {{post['rcategory']}} {% endblock %}</h4>
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="form-outline">
+                <label class="form-label" for="rname" required style="padding-left: 150px;">Recipe Name</label>
+
+                <input type="text" name="rname" id="form3Example2" required class="form-control" value="{{ request.form['rname'] or post['rname'] }}" />
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="form-outline">
+                <label class="form-label" for="rcategory" style="padding-left: 150px;">Recipe Category</label>
+
+                <input type="text" name="rcategory" id="form3Example1" required class="form-control" value="{{ request.form['rcategory'] or post['rcategory']}}" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="rimage">Recipe Image</label><br>
+        <img src="{{ post['rimage'] }}" alt="{{ post['rname'] }}" style="border-radius: 20%;" width="200px" height="200px">
+        <input type="text" name="rimage" placeholder="Enter the new image link to change the image" class="form-control" required value="{{ request.form['rimage'] or post['rimage']}}"></input>
+        <input type="text" name="img1" placeholder="Enter the other image link" class="form-control" value="{{ request.form['image1'] or post['image1']}}"></input>
+        <input type="text" name="img2" placeholder="Enter the otherimage link" class="form-control" value="{{ request.form['image2'] or post['image2']}}"></input>
+        <input type="text" name="img3" placeholder="Enter the other image link" class="form-control" value="{{ request.form['image3'] or post['image3']}}"></input>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="description">Short Description</label><br>
+        <input type="text" name="description" placeholder="Give a short description of the recipe" required class="form-control" value="{{ request.form['description'] or post['rdescription']}}"></input>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="content">Recipe Ingredients</label><br>
+        <textarea name="ingredient" placeholder="Enter the required ingredients" required class="form-control">{{ request.form['ingredient']  or post['ringredients']}}</textarea>
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="content">Recipe Procedure</label><br>
+        <textarea name="procedure" placeholder="Procedure for preparation" required class="form-control">{{ request.form['procedure']  or post['rprocedure']}}</textarea>
+    </div>
+    <br>
+    <div class="row">
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+
+</form>
+<hr>
+
+<form action="{{ url_for('delete', id=post['id']) }}" method="POST">
+    <input type="submit" value="Delete Post" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this post?')">
+</form>
+
+</div>
+
+{% endblock %}
